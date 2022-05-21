@@ -1,0 +1,35 @@
+var vid;
+
+var effect = {
+  ball: null,
+  ray1: null,
+  ray2: null
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  vid = createVideo('dance-high.mp4', vidLoad);
+  imageMode(CORNERS);
+  angleMode(DEGREES);
+}
+
+function draw() {
+  background(0);
+  image(vid, 0, 0, width, height);
+
+  run(effect.ball);
+  run(effect.ray1);
+  run(effect.ray2);
+
+  if (keyIsPressed && key != ' ' ) {
+    if (keyCode % 5 === 0) {
+      createRay();  
+    }
+    if (keyCode % 5 === 1) {
+      createBall();
+    }
+    if (keyCode % 5 === 2) {
+
+    }
+  }
+}

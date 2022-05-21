@@ -3,7 +3,8 @@ var vid;
 var effect = {
   ball: null,
   ray1: null,
-  ray2: null
+  ray2: null,
+  flower: null
 }
 
 function setup() {
@@ -20,6 +21,7 @@ function draw() {
   run(effect.ball);
   run(effect.ray1);
   run(effect.ray2);
+  run(effect.flower);
 
   if (keyIsPressed && key != ' ' ) {
     if (keyCode % 5 === 0) {
@@ -29,7 +31,7 @@ function draw() {
       createBall();
     }
     if (keyCode % 5 === 2) {
-
+      createFlower();
     }
   }
 }

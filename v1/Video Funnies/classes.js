@@ -5,7 +5,7 @@ class Ball {
         this.w = random(50, 250);
         this.speedX = random(-6, 6);
         this.speedY = random(-6, 6);
-        this.aplha = 180;
+        this.aplha = 150;
         this.presence = true;
         this.fading = false;
     }
@@ -131,10 +131,10 @@ class Rays {
 
         if (this.fading == true) {
             for (var i = 0; i < this.linesArr.length; i++) {
-                if (this.linesArr[i].dirAlpha < 10) {
+                if (this.linesArr[i].dirAlpha < 20) {
                     this.linesArr[i].dirAlpha = 0;
                 } else {
-                    this.linesArr[i].dirAlpha -= 10;
+                    this.linesArr[i].dirAlpha -= 20;
                 }
 
                 if (this.linesArr[i].dirAlpha == 0) {
@@ -209,7 +209,7 @@ class Flower {
         this.angle = 0;
         this.noiseGreen = 0.0;
         this.noiseBlue = 0.0;
-        this.aplha = 200;
+        this.aplha = 150;
         this.pettleArr = [];
         this.fading = false;
         this.presence = true;
@@ -233,7 +233,7 @@ class Flower {
 
         for (var i = 0; i < this.pettleArr.length; i++) {
             rotate(360/this.pettleArr.length + this.angle);
-            ellipse(this.pettleArr[i].posX, this.pettleArr[i].posY, 20);
+            ellipse(this.pettleArr[i].posX, this.pettleArr[i].posY, 60);
             line(0, 0, this.pettleArr[i].posX, this.pettleArr[i].posY);
             this.angle += 1;
         }
@@ -242,8 +242,8 @@ class Flower {
 
     addPettle() {
         var pettle = {
-            posX: random(25, 50),
-            posY: random(25, 50),
+            posX: random(75, 150),
+            posY: random(75, 150),
         }
         this.pettleArr.push(pettle);
     }

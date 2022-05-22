@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<style>
+    p {
+        margin: auto;
+        padding: auto;
+        font-size: 80px;
+    }
+</style>
+<body>
+    <a href="v1/Video Funnies/index.html"><p id="thing">v1</p></a>
+</body>
+</html>

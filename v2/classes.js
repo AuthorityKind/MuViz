@@ -97,7 +97,7 @@ class Rays {
     constructor(x, y, linesNum, lineUpBound) {
         this.x = x;
         this.y = y;
-        this.linesNum = linesNum;
+        this.linesNum = int(linesNum + (linesNum * random(0.3,2)));
         //lineUpBound is the value that is multiplied with a noise value, that together determines how far a line can go
         //basically, the higher lineUpBound is, the bigger the rays get
         this.lineUpBound = -lineUpBound;
@@ -181,7 +181,7 @@ class Rays {
                     200,
                     this.linesArr[i].dirAlpha
                 );
-                strokeWeight(noise(this.linesArr[i].noiseWeight) * 20);
+                strokeWeight(noise(this.linesArr[i].noiseWeight) * 30);
                 line(0, 0, 0, noise(this.linesArr[i].noiseLength) * this.lineUpBound);
                 rotate((this.degrees / this.linesArr.length));
             }
@@ -200,6 +200,7 @@ class Rays {
         if (this.linesArr.length < 1) {
             effects[I].inUse = false;
             effects[I].count = 50;
+            effects[I].ray = false;
             effects[I].fx = null;
         }
     }
@@ -221,7 +222,7 @@ class Flower {
     draw(I) {
         this.vanish(I);
         this.fade();
-        if (this.fading == false) {
+        if (this.fading == false && this.pettleArr.length <= 15) {
             this.addPettle();
         }
         this.noiseGreen += random(0.005, 0.015);
@@ -236,17 +237,17 @@ class Flower {
 
         for (var i = 0; i < this.pettleArr.length; i++) {
             rotate(360/this.pettleArr.length + this.angle);
-            ellipse(this.pettleArr[i].posX, this.pettleArr[i].posY, 60);
+            ellipse(this.pettleArr[i].posX, this.pettleArr[i].posY, 20);
             line(0, 0, this.pettleArr[i].posX, this.pettleArr[i].posY);
-            this.angle += 1;
+            this.angle += 0.5;
         }
         pop();
     }
 
     addPettle() {
         var pettle = {
-            posX: random(75, 150),
-            posY: random(75, 150),
+            posX: random(25, 50),
+            posY: random(25, 50),
         }
         this.pettleArr.push(pettle);
     }

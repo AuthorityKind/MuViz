@@ -29,8 +29,9 @@ function arrSetup() {
     for (var i = 0; i < effectsNum; i++) {
         var effect = {
             inUse: false,
+            ray: false,
             fx: null,
-            count: 25
+            count: 20
         }
         effects.push(effect);
     }
@@ -64,37 +65,63 @@ function spikeCheck(i) {
 
 function createEffect(I) {
     var eff;
-    if (I >= 0 && I <= segAvs.length / 3) {
+    var ray = false;
+    var createEffect = true;
+
+    if (I >= 0 && I <= (segAvs.length / 3) && raySpaceCheck() === true) {
         var coinFlip = random(-1, 1);
+        var x;
         if (coinFlip <= 0) {
-            eff = new Rays(0, height, 20, 1500);
-        } else {
-            eff = new Rays(width, height, 20, 1500);
+            x = width
+        } else if (coinFlip > 0) {
+            x = 0;
         }
-        eff.setup;
+        eff = new Rays(x, height, 2, 1200);
+        eff.setup();
+        ray = true;
     } else if (I > segAvs.length / 3 && I <= (segAvs.length / 3) * 2) {
         eff = new Ball;
-    } else if(I > (segAvs.length / 3) * 2 && I <= segAvs.length){
+    } else if (I > (segAvs.length / 3) * 2 && I <= segAvs.length) {
         eff = new Flower;
+    } else {
+        createEffect = false;
     }
 
-    for (var i = 0; i < effects.length; i++) {
-        if (effects[i].inUse == false) {
-            effects[i].fx = eff;
-            effects[i].inUse = true
-            break;
+    if (createEffect == true) {
+        for (var i = 0; i < effects.length; i++) {
+            if (effects[i].inUse == false) {
+                effects[i].fx = eff;
+                effects[i].ray = ray;
+                effects[i].inUse = true
+                break;
+            }
         }
     }
 }
 
 function drawEffects() {
-    for(var i = 0; i < effects.length; i++){
-        if(effects[i].inUse == true){
+    for (var i = 0; i < effects.length; i++) {
+        if (effects[i].inUse == true) {
             effects[i].fx.draw(i);
-            effects[i].count -= 1;
-            if(effects[i].count <= 0 && effects[i].fx.fading != true){
+            effects[i].count -= 2;
+            if (effects[i].count <= 0 && effects[i].fx.fading != true) {
                 effects[i].fx.beginFade();
             }
         }
     }
+}
+
+function raySpaceCheck() {
+    var count = 0;
+    var output = true;
+    for (var i = 0; i < effects.length; i++) {
+        if (effects[i].ray == true) {
+            count++;
+        }
+        if (count > 5) {
+            output = false;
+            break;
+        }
+    }
+    return output;
 }

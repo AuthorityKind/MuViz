@@ -8,7 +8,7 @@ var loadCheck = {
 var fft;
 var spectrum = [];
 var bins = 256;
-var segments = 64;
+var segments = 32;
 
 var segAvs = [0];
 //Segment Averages
@@ -22,17 +22,17 @@ var segSpan = bins / segments;
 var countPreAvs = 0;
 //Count Previous Averages
 
-var countPreAvsThreshold = 50;
+var countPreAvsThreshold = 40;
 //Count Previous Averages
 
-var spikeThreshold = 1.45;
+var spikeThreshold = 1.35;
 //multiplies with the segment previous average to see if the segment average exceeds that sum
 //the higher it is, the more the segment average needs to exceed the previous segment average for a spike to be read
 
-var minSpikeThreshold = 80;
+var minSpikeThreshold = 60;
 //the minimum a segment average needs to be before it counts as a spike
 
-var effectsNum = 30;
+var effectsNum = 50;
 var effects = [];
 
 function setup() {

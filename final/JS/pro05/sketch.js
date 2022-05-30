@@ -38,7 +38,7 @@ var effects = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   vid = createVideo('vid05.mp4', vidLoad);
-  song = loadSound('uneventful-days.mp3', songLoad);
+  song = loadSound('HoliznaCC0 - Retro Synths.mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 

@@ -38,7 +38,7 @@ var effects = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   vid = createVideo('vid09.mp4', vidLoad);
-  song = loadSound('saw-lightning.mp3', songLoad);
+  song = loadSound('AKMV-18 - Memoria (Mythic Mix).mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 

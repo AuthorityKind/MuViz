@@ -38,7 +38,7 @@ var effects = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   vid = createVideo('vid10.mp4', vidLoad);
-  song = loadSound('dark-places.mp3', songLoad);
+  song = loadSound('AKMV-18 - Kaamalot.mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 

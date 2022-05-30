@@ -9,7 +9,7 @@ var effect = {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  vid = createVideo('jack-black-morph.mp4', vidLoad);
+  vid = createVideo('pexels-rostislav-uzunov.mp4', vidLoad);
   imageMode(CORNERS);
   angleMode(DEGREES);
 }

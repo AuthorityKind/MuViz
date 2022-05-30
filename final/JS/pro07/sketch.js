@@ -38,7 +38,7 @@ var effects = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   vid = createVideo('vid07.mp4', vidLoad);
-  song = loadSound('everlasting-nothing.mp3', songLoad);
+  song = loadSound('Makaih Beats - Toast2Success.mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 

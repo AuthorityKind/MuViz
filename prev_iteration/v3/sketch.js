@@ -37,8 +37,8 @@ var effects = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  vid = createVideo('jack-black-morph.mp4', vidLoad);
-  song = loadSound('cold-sweat.mp3', songLoad);
+  vid = createVideo('pexels-rostislav-uzunov.mp4', vidLoad);
+  song = loadSound('Guifrog - Frog Punch.mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 

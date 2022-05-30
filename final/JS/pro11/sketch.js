@@ -38,7 +38,7 @@ var effects = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   vid = createVideo('vid11.mp4', vidLoad);
-  song = loadSound('hyperspace.mp3', songLoad);
+  song = loadSound('HoliznaCC0 - Day Dreams.mp3', songLoad);
   fft = new p5.FFT(0.2, bins);
   arrSetup();
 
